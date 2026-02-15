@@ -1,0 +1,848 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Final_Project>
+  <flowContents>
+    <identifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</identifier>
+    <instanceIdentifier>6269bfab-0199-1000-2979-084ef3207968</instanceIdentifier>
+    <name>Final_Project</name>
+    <comments />
+    <position>
+      <x>430.0</x>
+      <y>259.0</y>
+    </position><processGroups />
+    <remoteProcessGroups />
+    <processors>
+      <item>
+        <identifier>6d190ab8-d30a-3b8f-a56d-1bb4c7e1c053</identifier>
+        <instanceIdentifier>bfeb9ef9-eb8f-36d3-c449-6d279d74ceed</instanceIdentifier>
+        <name>Update File Name</name>
+        <comments />
+        <position>
+          <x>-204.0</x>
+          <y>208.0</y>
+        </position><type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+        <bundle>
+          <group>org.apache.nifi</group>
+          <artifact>nifi-update-attribute-nar</artifact>
+          <version>1.25.0</version>
+        </bundle><properties>
+          <Delete_Attributes_Expression />
+          <filename>#{FILENAME}</filename>
+          <Store_State>Do not store state</Store_State>
+          <canonical-value-lookup-cache-size>100</canonical-value-lookup-cache-size>
+          <Stateful_Variables_Initial_Value />
+        </properties><propertyDescriptors>
+          <Delete_Attributes_Expression>
+            <name>Delete Attributes Expression</name>
+            <displayName>Delete Attributes Expression</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Delete_Attributes_Expression><filename>
+            <name>filename</name>
+            <displayName>filename</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </filename><Store_State>
+            <name>Store State</name>
+            <displayName>Store State</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Store_State><canonical-value-lookup-cache-size>
+            <name>canonical-value-lookup-cache-size</name>
+            <displayName>Cache Value Lookup Cache Size</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </canonical-value-lookup-cache-size><Stateful_Variables_Initial_Value>
+            <name>Stateful Variables Initial Value</name>
+            <displayName>Stateful Variables Initial Value</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Stateful_Variables_Initial_Value>
+        </propertyDescriptors><style />
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <executionNode>ALL</executionNode>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <yieldDuration>1 sec</yieldDuration>
+        <bulletinLevel>WARN</bulletinLevel>
+        <runDurationMillis>25</runDurationMillis>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <autoTerminatedRelationships />
+        <scheduledState>ENABLED</scheduledState>
+        <retryCount>10</retryCount>
+        <retriedRelationships />
+        <backoffMechanism>PENALIZE_FLOWFILE</backoffMechanism>
+        <maxBackoffPeriod>10 mins</maxBackoffPeriod>
+        <componentType>PROCESSOR</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item><item>
+        <identifier>42ffb181-fe1d-34fd-a8ca-9f31f8c323d6</identifier>
+        <instanceIdentifier>867f832c-079c-3ec8-c94a-a8a7608acbb6</instanceIdentifier>
+        <name>Write File to HDFS</name>
+        <comments />
+        <position>
+          <x>-204.0</x>
+          <y>424.0</y>
+        </position><type>org.apache.nifi.processors.hadoop.PutHDFS</type>
+        <bundle>
+          <group>org.apache.nifi</group>
+          <artifact>nifi-hadoop-nar</artifact>
+          <version>1.25.0</version>
+        </bundle><properties>
+          <Permissions_umask />
+          <Hadoop_Configuration_Resources>/home/#{USER}/dsc650-infra/bellevue-bigdata/nifi/hadoopconf/core-site.xml</Hadoop_Configuration_Resources>
+          <Remote_Owner />
+          <Additional_Classpath_Resources />
+          <Compression_codec>NONE</Compression_codec>
+          <IO_Buffer_Size />
+          <Remote_Group />
+          <Block_Size />
+          <kerberos-credentials-service />
+          <Kerberos_Keytab />
+          <Ignore_Locality>false</Ignore_Locality>
+          <Kerberos_Principal />
+          <Replication />
+          <kerberos-user-service />
+          <writing-strategy>writeAndRename</writing-strategy>
+          <Kerberos_Relogin_Period>4 hours</Kerberos_Relogin_Period>
+          <Directory>#{HDFS WRITE DIRECTORY}</Directory>
+          <Conflict_Resolution_Strategy>fail</Conflict_Resolution_Strategy>
+        </properties><propertyDescriptors>
+          <Permissions_umask>
+            <name>Permissions umask</name>
+            <displayName>Permissions umask</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Permissions_umask><Hadoop_Configuration_Resources>
+            <name>Hadoop Configuration Resources</name>
+            <displayName>Hadoop Configuration Resources</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+            <resourceDefinition>
+              <cardinality>MULTIPLE</cardinality>
+              <resourceTypes>
+                <item>FILE</item>
+              </resourceTypes>
+            </resourceDefinition>
+          </Hadoop_Configuration_Resources><Remote_Owner>
+            <name>Remote Owner</name>
+            <displayName>Remote Owner</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Remote_Owner><Additional_Classpath_Resources>
+            <name>Additional Classpath Resources</name>
+            <displayName>Additional Classpath Resources</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+            <resourceDefinition>
+              <cardinality>MULTIPLE</cardinality>
+              <resourceTypes>
+                <item>FILE</item>
+                <item>DIRECTORY</item>
+              </resourceTypes>
+            </resourceDefinition>
+          </Additional_Classpath_Resources><Compression_codec>
+            <name>Compression codec</name>
+            <displayName>Compression codec</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Compression_codec><IO_Buffer_Size>
+            <name>IO Buffer Size</name>
+            <displayName>IO Buffer Size</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </IO_Buffer_Size><Remote_Group>
+            <name>Remote Group</name>
+            <displayName>Remote Group</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Remote_Group><Block_Size>
+            <name>Block Size</name>
+            <displayName>Block Size</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Block_Size><kerberos-credentials-service>
+            <name>kerberos-credentials-service</name>
+            <displayName>Kerberos Credentials Service</displayName>
+            <identifiesControllerService>True</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </kerberos-credentials-service><Kerberos_Password>
+            <name>Kerberos Password</name>
+            <displayName>Kerberos Password</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>True</sensitive>
+          </Kerberos_Password><Kerberos_Keytab>
+            <name>Kerberos Keytab</name>
+            <displayName>Kerberos Keytab</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+            <resourceDefinition>
+              <cardinality>SINGLE</cardinality>
+              <resourceTypes>
+                <item>FILE</item>
+              </resourceTypes>
+            </resourceDefinition>
+          </Kerberos_Keytab><Ignore_Locality>
+            <name>Ignore Locality</name>
+            <displayName>Ignore Locality</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Ignore_Locality><Kerberos_Principal>
+            <name>Kerberos Principal</name>
+            <displayName>Kerberos Principal</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Kerberos_Principal><Replication>
+            <name>Replication</name>
+            <displayName>Replication</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Replication><kerberos-user-service>
+            <name>kerberos-user-service</name>
+            <displayName>Kerberos User Service</displayName>
+            <identifiesControllerService>True</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </kerberos-user-service><writing-strategy>
+            <name>writing-strategy</name>
+            <displayName>Writing Strategy</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </writing-strategy><Kerberos_Relogin_Period>
+            <name>Kerberos Relogin Period</name>
+            <displayName>Kerberos Relogin Period</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Kerberos_Relogin_Period><Directory>
+            <name>Directory</name>
+            <displayName>Directory</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Directory><Conflict_Resolution_Strategy>
+            <name>Conflict Resolution Strategy</name>
+            <displayName>Conflict Resolution Strategy</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Conflict_Resolution_Strategy>
+        </propertyDescriptors><style />
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <executionNode>ALL</executionNode>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <yieldDuration>1 sec</yieldDuration>
+        <bulletinLevel>WARN</bulletinLevel>
+        <runDurationMillis>0</runDurationMillis>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <autoTerminatedRelationships>
+          <item>success</item>
+        </autoTerminatedRelationships><scheduledState>ENABLED</scheduledState>
+        <retryCount>10</retryCount>
+        <retriedRelationships />
+        <backoffMechanism>PENALIZE_FLOWFILE</backoffMechanism>
+        <maxBackoffPeriod>10 mins</maxBackoffPeriod>
+        <componentType>PROCESSOR</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item><item>
+        <identifier>14531e3e-d1c1-38f6-9161-a9ecdeabb69f</identifier>
+        <instanceIdentifier>89214844-f662-3b7a-34c3-3280eaf45266</instanceIdentifier>
+        <name>Download File</name>
+        <comments />
+        <position>
+          <x>-204.0</x>
+          <y>-40.0</y>
+        </position><type>org.apache.nifi.processors.standard.InvokeHTTP</type>
+        <bundle>
+          <group>org.apache.nifi</group>
+          <artifact>nifi-standard-nar</artifact>
+          <version>1.25.0</version>
+        </bundle><properties>
+          <Proxy_Host />
+          <Attributes_to_Send />
+          <use-etag>false</use-etag>
+          <proxy-configuration-service />
+          <Proxy_Type>http</Proxy_Type>
+          <cookie-strategy>DISABLED</cookie-strategy>
+          <Connection_Timeout>5 secs</Connection_Timeout>
+          <send-message-body>true</send-message-body>
+          <set-form-filename>true</set-form-filename>
+          <Always_Output_Response>false</Always_Output_Response>
+          <etag-max-cache-size>10MB</etag-max-cache-size>
+          <Content-Encoding>DISABLED</Content-Encoding>
+          <disable-http2>False</disable-http2>
+          <idle-timeout>5 mins</idle-timeout>
+          <Put_Response_Body_In_Attribute />
+          <Use_Chunked_Encoding>false</Use_Chunked_Encoding>
+          <Follow_Redirects>True</Follow_Redirects>
+          <Remote_URL>#{DOWNLOAD FILE URL}</Remote_URL>
+          <form-body-form-name />
+          <Content-Type>${mime.type}</Content-Type>
+          <flow-file-naming-strategy>RANDOM</flow-file-naming-strategy>
+          <max-idle-connections>5</max-idle-connections>
+          <invokehttp-proxy-user />
+          <Read_Timeout>15 secs</Read_Timeout>
+          <Socket_Write_Timeout>15 secs</Socket_Write_Timeout>
+          <Max_Length_To_Put_In_Attribute>256</Max_Length_To_Put_In_Attribute>
+          <ignore-response-content>false</ignore-response-content>
+          <Proxy_Port />
+          <SSL_Context_Service />
+          <Digest_Authentication>false</Digest_Authentication>
+          <HTTP_Method>GET</HTTP_Method>
+          <Add_Response_Headers_to_Request>false</Add_Response_Headers_to_Request>
+          <oauth2-access-token-provider />
+          <Basic_Authentication_Username />
+          <Include_Date_Header>True</Include_Date_Header>
+          <Penalize_on_"No_Retry">false</Penalize_on_"No_Retry">
+          <Useragent />
+        </properties><propertyDescriptors>
+          <Proxy_Host>
+            <name>Proxy Host</name>
+            <displayName>Proxy Host</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Proxy_Host><Attributes_to_Send>
+            <name>Attributes to Send</name>
+            <displayName>Request Header Attributes Pattern</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Attributes_to_Send><use-etag>
+            <name>use-etag</name>
+            <displayName>Response Cache Enabled</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </use-etag><proxy-configuration-service>
+            <name>proxy-configuration-service</name>
+            <displayName>Proxy Configuration Service</displayName>
+            <identifiesControllerService>True</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </proxy-configuration-service><Proxy_Type>
+            <name>Proxy Type</name>
+            <displayName>Proxy Type</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Proxy_Type><Basic_Authentication_Password>
+            <name>Basic Authentication Password</name>
+            <displayName>Request Password</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>True</sensitive>
+          </Basic_Authentication_Password><cookie-strategy>
+            <name>cookie-strategy</name>
+            <displayName>Response Cookie Strategy</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </cookie-strategy><Connection_Timeout>
+            <name>Connection Timeout</name>
+            <displayName>Socket Connect Timeout</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Connection_Timeout><send-message-body>
+            <name>send-message-body</name>
+            <displayName>Request Body Enabled</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </send-message-body><set-form-filename>
+            <name>set-form-filename</name>
+            <displayName>Request Multipart Form-Data Filename Enabled</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </set-form-filename><Always_Output_Response>
+            <name>Always Output Response</name>
+            <displayName>Response Generation Required</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Always_Output_Response><etag-max-cache-size>
+            <name>etag-max-cache-size</name>
+            <displayName>Response Cache Size</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </etag-max-cache-size><Content-Encoding>
+            <name>Content-Encoding</name>
+            <displayName>Request Content-Encoding</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Content-Encoding><disable-http2>
+            <name>disable-http2</name>
+            <displayName>HTTP/2 Disabled</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </disable-http2><idle-timeout>
+            <name>idle-timeout</name>
+            <displayName>Socket Idle Timeout</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </idle-timeout><Put_Response_Body_In_Attribute>
+            <name>Put Response Body In Attribute</name>
+            <displayName>Response Body Attribute Name</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Put_Response_Body_In_Attribute><Use_Chunked_Encoding>
+            <name>Use Chunked Encoding</name>
+            <displayName>Request Chunked Transfer-Encoding Enabled</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Use_Chunked_Encoding><Follow_Redirects>
+            <name>Follow Redirects</name>
+            <displayName>Response Redirects Enabled</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Follow_Redirects><Remote_URL>
+            <name>Remote URL</name>
+            <displayName>HTTP URL</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Remote_URL><form-body-form-name>
+            <name>form-body-form-name</name>
+            <displayName>Request Multipart Form-Data Name</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </form-body-form-name><Content-Type>
+            <name>Content-Type</name>
+            <displayName>Request Content-Type</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Content-Type><flow-file-naming-strategy>
+            <name>flow-file-naming-strategy</name>
+            <displayName>Response FlowFile Naming Strategy</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </flow-file-naming-strategy><max-idle-connections>
+            <name>max-idle-connections</name>
+            <displayName>Socket Idle Connections</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </max-idle-connections><invokehttp-proxy-user>
+            <name>invokehttp-proxy-user</name>
+            <displayName>Proxy Username</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </invokehttp-proxy-user><Read_Timeout>
+            <name>Read Timeout</name>
+            <displayName>Socket Read Timeout</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Read_Timeout><Socket_Write_Timeout>
+            <name>Socket Write Timeout</name>
+            <displayName>Socket Write Timeout</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Socket_Write_Timeout><Max_Length_To_Put_In_Attribute>
+            <name>Max Length To Put In Attribute</name>
+            <displayName>Response Body Attribute Size</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Max_Length_To_Put_In_Attribute><invokehttp-proxy-password>
+            <name>invokehttp-proxy-password</name>
+            <displayName>Proxy Password</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>True</sensitive>
+          </invokehttp-proxy-password><ignore-response-content>
+            <name>ignore-response-content</name>
+            <displayName>Response Body Ignored</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </ignore-response-content><Proxy_Port>
+            <name>Proxy Port</name>
+            <displayName>Proxy Port</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Proxy_Port><SSL_Context_Service>
+            <name>SSL Context Service</name>
+            <displayName>SSL Context Service</displayName>
+            <identifiesControllerService>True</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </SSL_Context_Service><Digest_Authentication>
+            <name>Digest Authentication</name>
+            <displayName>Request Digest Authentication Enabled</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Digest_Authentication><HTTP_Method>
+            <name>HTTP Method</name>
+            <displayName>HTTP Method</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </HTTP_Method><Add_Response_Headers_to_Request>
+            <name>Add Response Headers to Request</name>
+            <displayName>Response Header Request Attributes Enabled</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Add_Response_Headers_to_Request><oauth2-access-token-provider>
+            <name>oauth2-access-token-provider</name>
+            <displayName>Request OAuth2 Access Token Provider</displayName>
+            <identifiesControllerService>True</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </oauth2-access-token-provider><Basic_Authentication_Username>
+            <name>Basic Authentication Username</name>
+            <displayName>Request Username</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Basic_Authentication_Username><Include_Date_Header>
+            <name>Include Date Header</name>
+            <displayName>Request Date Header Enabled</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Include_Date_Header><Penalize_on_"No_Retry">
+            <name>Penalize on "No Retry"</name>
+            <displayName>Request Failure Penalization Enabled</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Penalize_on_"No_Retry"><Useragent>
+            <name>Useragent</name>
+            <displayName>Request User-Agent</displayName>
+            <identifiesControllerService>False</identifiesControllerService>
+            <sensitive>False</sensitive>
+          </Useragent>
+        </propertyDescriptors><style />
+        <schedulingPeriod>60 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <executionNode>ALL</executionNode>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <yieldDuration>1 sec</yieldDuration>
+        <bulletinLevel>WARN</bulletinLevel>
+        <runDurationMillis>0</runDurationMillis>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <autoTerminatedRelationships>
+          <item>Original</item>
+        </autoTerminatedRelationships><scheduledState>ENABLED</scheduledState>
+        <retryCount>10</retryCount>
+        <retriedRelationships />
+        <backoffMechanism>PENALIZE_FLOWFILE</backoffMechanism>
+        <maxBackoffPeriod>10 mins</maxBackoffPeriod>
+        <componentType>PROCESSOR</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item>
+    </processors><inputPorts />
+    <outputPorts />
+    <connections>
+      <item>
+        <identifier>2c687f0f-a5a1-339a-8c3a-63614c70b437</identifier>
+        <instanceIdentifier>86e84f09-806d-3e48-3686-e76d9da7c75d</instanceIdentifier>
+        <name />
+        <source>
+          <id>42ffb181-fe1d-34fd-a8ca-9f31f8c323d6</id>
+          <type>PROCESSOR</type>
+          <groupId>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupId>
+          <name>Write File to HDFS</name>
+          <comments />
+          <instanceIdentifier>867f832c-079c-3ec8-c94a-a8a7608acbb6</instanceIdentifier>
+        </source><destination>
+          <id>00c785e4-db07-3e25-8be9-a9789082bda6</id>
+          <type>FUNNEL</type>
+          <groupId>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupId>
+          <name>Funnel</name>
+          <comments />
+          <instanceIdentifier>b0f84431-8be3-3d7b-4146-fc7a8e74f0ae</instanceIdentifier>
+        </destination><labelIndex>1</labelIndex>
+        <zIndex>0</zIndex>
+        <selectedRelationships>
+          <item>failure</item>
+        </selectedRelationships><backPressureObjectThreshold>10000</backPressureObjectThreshold>
+        <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+        <flowFileExpiration>0 sec</flowFileExpiration>
+        <prioritizers />
+        <bends />
+        <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+        <partitioningAttribute />
+        <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+        <componentType>CONNECTION</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item><item>
+        <identifier>fd651d86-5861-3fbd-a3f9-7fe788f2e446</identifier>
+        <instanceIdentifier>c05a1bbe-6f3d-36bf-dac5-3cf95589fac3</instanceIdentifier>
+        <name />
+        <source>
+          <id>14531e3e-d1c1-38f6-9161-a9ecdeabb69f</id>
+          <type>PROCESSOR</type>
+          <groupId>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupId>
+          <name>Download File</name>
+          <comments />
+          <instanceIdentifier>89214844-f662-3b7a-34c3-3280eaf45266</instanceIdentifier>
+        </source><destination>
+          <id>6d190ab8-d30a-3b8f-a56d-1bb4c7e1c053</id>
+          <type>PROCESSOR</type>
+          <groupId>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupId>
+          <name>Update File Name</name>
+          <comments />
+          <instanceIdentifier>bfeb9ef9-eb8f-36d3-c449-6d279d74ceed</instanceIdentifier>
+        </destination><labelIndex>1</labelIndex>
+        <zIndex>0</zIndex>
+        <selectedRelationships>
+          <item>Response</item>
+        </selectedRelationships><backPressureObjectThreshold>10000</backPressureObjectThreshold>
+        <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+        <flowFileExpiration>0 sec</flowFileExpiration>
+        <prioritizers />
+        <bends />
+        <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+        <partitioningAttribute />
+        <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+        <componentType>CONNECTION</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item><item>
+        <identifier>49751ac0-1e25-3961-b4f7-720ded8cbd02</identifier>
+        <instanceIdentifier>5032d34d-659f-365b-1145-f34e5a03fb1a</instanceIdentifier>
+        <name />
+        <source>
+          <id>14531e3e-d1c1-38f6-9161-a9ecdeabb69f</id>
+          <type>PROCESSOR</type>
+          <groupId>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupId>
+          <name>Download File</name>
+          <comments />
+          <instanceIdentifier>89214844-f662-3b7a-34c3-3280eaf45266</instanceIdentifier>
+        </source><destination>
+          <id>38f0acb5-768f-3093-856b-d546f5146f50</id>
+          <type>FUNNEL</type>
+          <groupId>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupId>
+          <name>Funnel</name>
+          <comments />
+          <instanceIdentifier>152cd694-d01e-38bc-470e-02ce35f528f6</instanceIdentifier>
+        </destination><labelIndex>1</labelIndex>
+        <zIndex>0</zIndex>
+        <selectedRelationships>
+          <item>No Retry</item>
+          <item>Retry</item>
+          <item>Failure</item>
+        </selectedRelationships><backPressureObjectThreshold>10000</backPressureObjectThreshold>
+        <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+        <flowFileExpiration>0 sec</flowFileExpiration>
+        <prioritizers />
+        <bends />
+        <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+        <partitioningAttribute />
+        <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+        <componentType>CONNECTION</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item><item>
+        <identifier>48239779-1a25-399d-a211-82bcbb5188fb</identifier>
+        <instanceIdentifier>54292c7e-975a-331d-42b5-46428e0ab376</instanceIdentifier>
+        <name />
+        <source>
+          <id>6d190ab8-d30a-3b8f-a56d-1bb4c7e1c053</id>
+          <type>PROCESSOR</type>
+          <groupId>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupId>
+          <name>Update File Name</name>
+          <comments />
+          <instanceIdentifier>bfeb9ef9-eb8f-36d3-c449-6d279d74ceed</instanceIdentifier>
+        </source><destination>
+          <id>42ffb181-fe1d-34fd-a8ca-9f31f8c323d6</id>
+          <type>PROCESSOR</type>
+          <groupId>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupId>
+          <name>Write File to HDFS</name>
+          <comments />
+          <instanceIdentifier>867f832c-079c-3ec8-c94a-a8a7608acbb6</instanceIdentifier>
+        </destination><labelIndex>1</labelIndex>
+        <zIndex>0</zIndex>
+        <selectedRelationships>
+          <item>success</item>
+        </selectedRelationships><backPressureObjectThreshold>10000</backPressureObjectThreshold>
+        <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+        <flowFileExpiration>0 sec</flowFileExpiration>
+        <prioritizers />
+        <bends />
+        <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+        <partitioningAttribute />
+        <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+        <componentType>CONNECTION</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item>
+    </connections><labels>
+      <item>
+        <identifier>0ecf28ce-5bc6-38f8-928b-3f771b8d1781</identifier>
+        <instanceIdentifier>7c5673ad-b486-3f81-4fb2-65191298b662</instanceIdentifier>
+        <position>
+          <x>-744.0</x>
+          <y>-272.0</y>
+        </position><label>Step 2 – Set Parameters
+Create parameters in your Parameter Context (Right Click in canvas and select Parameters):
+
+DOWNLOAD FILE URL = Raw GitHub URL to a small CSV
+
+FILENAME = name of the file (e.g. sample.csv)
+
+HDFS WRITE DIRECTORY = directory in HDFS (e.g. /tmp)
+
+USER = output of the command `whoami` on your Google VM
+</label>
+        <zIndex>0</zIndex>
+        <width>608.0</width>
+        <height>184.0</height>
+        <style>
+          <background-color>#d6f4ff</background-color>
+          <font-size>14px</font-size>
+        </style><componentType>LABEL</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item><item>
+        <identifier>dbdc34d5-0767-35a0-a5c3-840dcd2c10b7</identifier>
+        <instanceIdentifier>1cfb60f6-0ed5-3f6a-3d16-9e3b6a812199</instanceIdentifier>
+        <position>
+          <x>-752.0</x>
+          <y>416.0</y>
+        </position><label>Step 5 – Run Write File to HDFS (PutHDFS)
+
+This will write your data to the hdfs folder HDFS_WRITE_DIRECTORY
+in the parameter context
+
+It will use the core-site.xml config for hdfs in the USER parameter directory</label>
+        <zIndex>0</zIndex>
+        <width>520.0</width>
+        <height>128.0</height>
+        <style>
+          <font-size>14px</font-size>
+        </style><componentType>LABEL</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item><item>
+        <identifier>44a844cf-3fac-3647-bb1c-70b0f4586bfa</identifier>
+        <instanceIdentifier>b4863f83-73ad-1c56-a86a-688f1213c3ce</instanceIdentifier>
+        <position>
+          <x>-752.0</x>
+          <y>760.0</y>
+        </position><label>Step 7 – Stop NiFi
+
+Run: ./nifi.sh stop
+Inside: nifi-1.25.0/bin</label>
+        <zIndex>0</zIndex>
+        <width>608.0</width>
+        <height>112.0</height>
+        <style>
+          <background-color>#ffd4f1</background-color>
+          <font-size>14px</font-size>
+        </style><componentType>LABEL</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item><item>
+        <identifier>c0468835-a68f-397b-8330-bb302efeef4b</identifier>
+        <instanceIdentifier>89a056fa-9d92-330d-9302-d106b04e0541</instanceIdentifier>
+        <position>
+          <x>-752.0</x>
+          <y>208.0</y>
+        </position><label>Step 4 – Run Update FileName (Update Attribute) 
+
+This will rename your file to the parameter FILENAME in the parameter context</label>
+        <zIndex>0</zIndex>
+        <width>520.0</width>
+        <height>128.0</height>
+        <style>
+          <font-size>14px</font-size>
+        </style><componentType>LABEL</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item><item>
+        <identifier>35156e3d-14c5-3424-ab7e-60fd6d33c83b</identifier>
+        <instanceIdentifier>b4863f81-73ad-1c56-5365-723f812b9feb</instanceIdentifier>
+        <position>
+          <x>-744.0</x>
+          <y>-408.0</y>
+        </position><label>Step 1 – Start Hadoop Containers
+
+Run: docker-compose up -d 
+Inside: hadoop-hive-spark-hbase
+Wait: For HDFS User Interface to Load</label>
+        <zIndex>0</zIndex>
+        <width>608.0</width>
+        <height>112.0</height>
+        <style>
+          <background-color>#d4ffef</background-color>
+          <font-size>14px</font-size>
+        </style><componentType>LABEL</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item><item>
+        <identifier>f3862bf9-d2dd-386a-8b7b-ffaed450a0e2</identifier>
+        <instanceIdentifier>f07a1f69-469f-3fde-eb1d-3b2ea7f90e99</instanceIdentifier>
+        <position>
+          <x>-752.0</x>
+          <y>584.0</y>
+        </position><label>Step 6 - Validate File Load
+
+Inside the master docker container run:
+
+hdfs dfs -ls &lt;HDFS WRITE DIRECTORY&gt;
+
+for example, if HDFS_WRITE_DIRECTORY was /tmp the command would be:
+hdfs dfs -ls /tmp</label>
+        <zIndex>0</zIndex>
+        <width>608.0</width>
+        <height>152.0</height>
+        <style>
+          <background-color>#d6f4ff</background-color>
+          <font-size>14px</font-size>
+        </style><componentType>LABEL</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item><item>
+        <identifier>950e185d-c392-3461-9769-8f4a7a8979eb</identifier>
+        <instanceIdentifier>52f57e43-f759-3421-c32b-253c9e1c30e2</instanceIdentifier>
+        <position>
+          <x>-744.0</x>
+          <y>-48.0</y>
+        </position><label>Step 3 – Run Download File (Invoke HTTP) 
+
+Right click and Run-Once 
+or 
+Right click -&gt; Start
+
+Optional Configure Timer:
+Right click -&gt; configure -&gt; scheduling is set to run every 30 seconds
+
+</label>
+        <zIndex>0</zIndex>
+        <width>488.0</width>
+        <height>152.0</height>
+        <style>
+          <font-size>14px</font-size>
+        </style><componentType>LABEL</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item>
+    </labels><funnels>
+      <item>
+        <identifier>00c785e4-db07-3e25-8be9-a9789082bda6</identifier>
+        <instanceIdentifier>b0f84431-8be3-3d7b-4146-fc7a8e74f0ae</instanceIdentifier>
+        <position>
+          <x>472.0</x>
+          <y>472.0</y>
+        </position><componentType>FUNNEL</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item><item>
+        <identifier>38f0acb5-768f-3093-856b-d546f5146f50</identifier>
+        <instanceIdentifier>152cd694-d01e-38bc-470e-02ce35f528f6</instanceIdentifier>
+        <position>
+          <x>432.0</x>
+          <y>-8.0</y>
+        </position><componentType>FUNNEL</componentType>
+        <groupIdentifier>6aa545a8-6ed6-3c71-bb3b-99830978a0a5</groupIdentifier>
+      </item>
+    </funnels><controllerServices />
+    <variables />
+    <parameterContextName>Final Project</parameterContextName>
+    <defaultFlowFileExpiration>0 sec</defaultFlowFileExpiration>
+    <defaultBackPressureObjectThreshold>10000</defaultBackPressureObjectThreshold>
+    <defaultBackPressureDataSizeThreshold>1 GB</defaultBackPressureDataSizeThreshold>
+    <logFileSuffix />
+    <componentType>PROCESS_GROUP</componentType>
+    <flowFileConcurrency>UNBOUNDED</flowFileConcurrency>
+    <flowFileOutboundPolicy>STREAM_WHEN_AVAILABLE</flowFileOutboundPolicy>
+  </flowContents><externalControllerServices />
+  <parameterContexts>
+    <Final_Project>
+      <name>Final Project</name>
+      <parameters>
+        <item>
+          <name>HDFS WRITE DIRECTORY</name>
+          <description />
+          <sensitive>False</sensitive>
+          <provided>False</provided>
+        </item><item>
+          <name>DOWNLOAD FILE URL</name>
+          <description />
+          <sensitive>False</sensitive>
+          <provided>False</provided>
+        </item><item>
+          <name>FILENAME</name>
+          <description />
+          <sensitive>False</sensitive>
+          <provided>False</provided>
+        </item><item>
+          <name>USER</name>
+          <description />
+          <sensitive>False</sensitive>
+          <provided>False</provided>
+        </item>
+      </parameters><inheritedParameterContexts />
+      <componentType>PARAMETER_CONTEXT</componentType>
+    </Final_Project>
+  </parameterContexts><flowEncodingVersion>1.0</flowEncodingVersion>
+  <parameterProviders />
+  <latest>False</latest>
+</Final_Project>

@@ -16,34 +16,40 @@
 <body>
   <a href="../">← Back to Portfolio</a>
 
-  <h1>Big Data Pipeline</h1>
-  <p class="muted">End-to-end pipeline using NiFi + Hadoop ecosystem (HDFS, Hive, Spark).</p>
+  <h1>Big Data Pipeline (NiFi • HDFS • Hive • Spark • HBase)</h1>
+  <p class="muted">End-to-end ingestion and processing pipeline across the Hadoop ecosystem.</p>
 
   <div class="card">
     <h2>Overview</h2>
-    <p>This project demonstrates ingestion, storage, table creation, and transformation in a big-data environment.</p>
-    <span class="tag">NiFi</span><span class="tag">HDFS</span><span class="tag">Hive</span><span class="tag">Spark</span><span class="tag">Docker</span>
+    <p>
+      A full big-data ingestion and processing pipeline built using Apache NiFi for
+      data ingestion, HDFS for distributed storage, Hive for querying structured
+      tables, Spark for transformation and computation, and HBase for NoSQL storage.
+      The project included architecture documentation, screenshots, and validation
+      of distributed workflows.
+    </p>
+    <span class="tag">NiFi</span><span class="tag">HDFS</span><span class="tag">Hive</span><span class="tag">Spark</span><span class="tag">HBase</span><span class="tag">Docker</span>
   </div>
 
   <div class="card">
     <h2>Pipeline Flow</h2>
     <ol>
-      <li>Ingest data with NiFi processors</li>
-      <li>Write to HDFS</li>
-      <li>Create Hive tables</li>
-      <li>Transform with Spark</li>
-      <li>Validate outputs</li>
+      <li>Ingest data with NiFi processors and manage flow configuration</li>
+      <li>Write raw/processed data to HDFS and verify file placement</li>
+      <li>Create Hive managed/external tables for structured querying</li>
+      <li>Transform and analyze data with Spark jobs</li>
+      <li>Validate outputs and document system behavior and results</li>
     </ol>
   </div>
 
   <div class="card">
     <h2>Files & Links</h2>
     <ul>
-      <li><a href="#">Flow Diagram / Screenshot</a></li>
-      <li><a href="#">Write-up PDF</a></li>
-      <li><a href="#">Spark Code</a></li>
+      <li><a href="#" aria-disabled="true">Flow Diagram / Screenshots</a></li>
+      <li><a href="#" aria-disabled="true">Write-up PDF</a></li>
+      <li><a href="#" aria-disabled="true">Spark Code</a></li>
     </ul>
-    <a class="btn" href="#">View on GitHub</a>
+    <a class="btn" href="https://github.com/taylorduncan/taylorduncan.github.io/tree/main/big-data-pipeline" target="_blank" rel="noopener">View on GitHub</a>
   </div>
 </body>
 </html>
